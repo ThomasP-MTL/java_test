@@ -12,7 +12,8 @@ pipeline {
 
         stage('build / Git') {
           steps {
-            git(url: 'https://github.com/kliakos/sparkjava-war-example.git', branch: 'master')
+            sh 'ls'
+            git(url: 'https://github.com/ThomasP-MTL/java_test.git', branch: 'main')
             sh 'mvn clean install'
             archiveArtifacts 'target/*.war'
           }
@@ -29,7 +30,7 @@ pipeline {
 
     stage('end') {
       steps {
-        sh 'echo "Fin des taches, ca s est bien déroulé"'
+        sh 'echo "Fin des taches, ca s est bien dÃ©roulÃ©"'
       }
     }
 
