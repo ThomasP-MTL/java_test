@@ -17,7 +17,7 @@ pipeline {
           steps {
             sh 'ls'
             sh 'git clone https://github.com/kliakos/sparkjava-war-example.git'
-            sh 'cd sparkajave-war-example'
+            sh 'cd sparkajava-war-example'
             sh 'mvn clean install'
             archiveArtifacts 'target/*.war'
           }
