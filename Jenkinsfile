@@ -2,26 +2,9 @@ pipeline {
   agent any
   stages {
     stage('test') {
-      parallel {
-        stage('test') {
-          steps {
-            echo 'hello phase de test'
-            sh 'mvn clean test'
-          }
-        }
-
-        stage('build') {
-          environment {
-            JAVA_HOME = '/usr/lib/jvm/java-8-openjdk/'
-          }
-          steps {
-            sh 'git clone https://github.com/kliakos/sparkjava-war-example.git'
-            sh 'cd sparkjava-war-example'
-            sh 'mvn clean install'
-            archiveArtifacts 'target/*.war'
-          }
-        }
-
+      steps {
+        echo 'hello phase de test'
+        sh 'mvn clean test'
       }
     }
 
