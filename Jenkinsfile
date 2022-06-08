@@ -10,15 +10,14 @@ pipeline {
           }
         }
 
-        stage('build / Git') {
+        stage('build') {
+          environment {
+            JAVA_HOME = '/usr/lib/jvm/java-8-openjdk/'
+          }
           steps {
-            sh 'mkdir Sparkjava'
-            dir(path: 'Sparkjava/') {
-              pwd()
-            }
-
             sh 'ls'
-            git(url: 'https://github.com/kliakos/sparkjava-war-example.git', branch: 'master')
+            sh 'git clone https://github.com/kliakos/sparkjava-war-example.git'
+            sh 'cd sparkajave-war-example'
             sh 'mvn clean install'
             archiveArtifacts 'target/*.war'
           }
