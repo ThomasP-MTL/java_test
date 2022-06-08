@@ -18,7 +18,7 @@ pipeline {
             }
 
             sh 'ls'
-            git(url: 'https://github.com/ThomasJaspers/java-junit-sample.git', branch: 'master')
+            git(url: 'https://github.com/kliakos/sparkjava-war-example.git', branch: 'master')
             sh 'mvn clean install'
             archiveArtifacts 'target/*.war'
           }
