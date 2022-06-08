@@ -15,7 +15,6 @@ pipeline {
             JAVA_HOME = '/usr/lib/jvm/java-8-openjdk/'
           }
           steps {
-            sh 'rm -rf sparkjava-war-example'
             sh 'git clone https://github.com/kliakos/sparkjava-war-example.git'
             sh 'cd sparkjava-war-example'
             sh 'mvn clean install'
